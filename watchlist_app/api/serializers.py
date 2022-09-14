@@ -7,7 +7,15 @@ class MovieSerializer(serializers.Serializer):
     description = serializers.CharField()
     active = serializers.BooleanField()
 
- 
+    def create(self, validated_data):
+        return Movie.objects.create(**validated_data)
+    
+    def create(self,instance, validated_data):
+        instance.name = validated_data('name', instance.name)
+        instance.description = validated_data('description', instance.description)
+        instance.active = validated_data('active', instance.active)
+        instance.save()
+        return instance
 
 # class MoviesSerializer(serializers.ModelSerializer):
 #     class Meta:
