@@ -14,7 +14,6 @@ class WatchList(models.Model):
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now=True)
     
-    
     def __str__(self):
-        return self.name
+        return self.title
     
