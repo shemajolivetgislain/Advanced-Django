@@ -9,4 +9,5 @@ urlpatterns = [
 
     path('stream', streamPlatform.as_view(), name='stream-list'),
     path('stream/<int:stream_id>', StreamPlatformDetail.as_view(), name='stream-detail'),
+    
 ]
